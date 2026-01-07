@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  cribl-devTest:
+    image: cribl/cribl:4.15.0
+    container_name: cribl-devTest
+    ports:
+      - "9000:9000"
+    environment:
+      - CRIBL_DIST=cribl
+    volumes:
+      - cribl-data:/opt/cribl/data
+      - cribl-state:/opt/cribl/state
+    restart: unless-stopped
+
+volumes:
+  cribl-data:
+  cribl-state:
+
